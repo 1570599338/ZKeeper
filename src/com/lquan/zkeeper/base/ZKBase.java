@@ -87,8 +87,6 @@ public class ZKBase {
 		
 		zk.delete("/lquan/lquan5", -1);
 		
-		
-		
 		zk.close();
 		
 				
