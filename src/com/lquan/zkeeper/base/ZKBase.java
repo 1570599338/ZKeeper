@@ -1,14 +1,11 @@
 package com.lquan.zkeeper.base;
 
-import java.io.IOException;
 import java.util.List;
 
-import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.Watcher.Event.EventType;
 import org.apache.zookeeper.Watcher.Event.KeeperState;
-import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.ZooKeeper;
 
 /**
@@ -84,6 +81,8 @@ public class ZKBase {
 //		 zk.create("/testRootPath/testChildPathTwo", "testChildDataTwo".getBytes(), 
 //				   Ids.OPEN_ACL_UNSAFE,CreateMode.PERSISTENT); 
 //		System.out.println(new String(zk.getData("/testRootPath/testChildPathTwo",true,null))); 
+		
+		
 		
 		zk.delete("/lquan/lquan5", -1);
 		
