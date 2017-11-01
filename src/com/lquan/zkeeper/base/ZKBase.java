@@ -82,7 +82,9 @@ public class ZKBase {
 //				   Ids.OPEN_ACL_UNSAFE,CreateMode.PERSISTENT); 
 //		System.out.println(new String(zk.getData("/testRootPath/testChildPathTwo",true,null))); 
 		
-		//zk.delete("/lquan/lquan5", -1);
+		zk.delete("/lquan/lquan5", -1);
+		
+		
 		
 		zk.close();
 		
