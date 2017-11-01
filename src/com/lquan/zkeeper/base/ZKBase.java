@@ -68,21 +68,21 @@ public class ZKBase {
 //		System.out.println("create:"+ zkc);
 		
 		// 获取节点值
-		String zkgetdata = new String(zk.getData("/lquan/lquan2", true, null));
-		System.out.println("获取数据"+zkgetdata);
+//		String zkgetdata = new String(zk.getData("/lquan/lquan2", true, null));
+//		System.out.println("获取数据"+zkgetdata);
 		
 		// 获取自节点
 		List<String> zkList = zk.getChildren("/lquan", null);
 		System.out.println("zk list:"+zkList);
 		
 		// 设置子节点
-		zk.setData("/lquan", "quanaa".getBytes(), -1);
+		zk.setData("/lquan/lquan4", "quanaaxd".getBytes(), -1);
 		
 //		 zk.create("/testRootPath/testChildPathTwo", "testChildDataTwo".getBytes(), 
 //				   Ids.OPEN_ACL_UNSAFE,CreateMode.PERSISTENT); 
 //		System.out.println(new String(zk.getData("/testRootPath/testChildPathTwo",true,null))); 
 		
-		zk.delete("/lquan/lquan5", -1);
+		//zk.delete("/lquan/lquan5", -1);
 		
 		zk.close();
 		
