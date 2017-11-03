@@ -2,11 +2,14 @@ package com.lquan.zkeeper.base;
 
 import java.util.List;
 
+import org.apache.zookeeper.CreateMode;
 import org.apache.zookeeper.WatchedEvent;
 import org.apache.zookeeper.Watcher;
 import org.apache.zookeeper.Watcher.Event.EventType;
 import org.apache.zookeeper.Watcher.Event.KeeperState;
+import org.apache.zookeeper.ZooDefs.Ids;
 import org.apache.zookeeper.ZooKeeper;
+import org.apache.zookeeper.data.Stat;
 
 /**
  * Zookeeper 作为一个分布式的服务框架，
@@ -21,7 +24,7 @@ import org.apache.zookeeper.ZooKeeper;
  */
 public class ZKBase {
 	// zk的地址
-	private static String urlString ="192.168.207.100:2181";
+	private static String urlString ="192.168.207.6:2181";
 	// zk的session超时时长
 	private final static int sessionTimeout =2000;//ms
 	
@@ -63,26 +66,31 @@ public class ZKBase {
 			}
 		});
 		
+		// exists 方法意义在于无论节点是否存在，都可以进行注册watcher，能够堆节点的创建，
+		// 删除和修改进行监听，但是其自节点发送各种变化，都不会通知客户端。
+		Stat aa = zk.exists("/lquan/lquan8", true);
+		//System.out.println("****"+aa.toString());
 		// 创建一个节点 lquan quan
-//		String  zkc = zk.create("/lquan/lquan6", "lquanc".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
-//		System.out.println("create:"+ zkc);
+		String  zkc = zk.create("/lquan/lquan8", "lquanc".getBytes(), Ids.OPEN_ACL_UNSAFE, CreateMode.PERSISTENT);
+		System.out.println("create:"+ zkc);
+		
 		
 		// 获取节点值
 //		String zkgetdata = new String(zk.getData("/lquan/lquan2", true, null));
 //		System.out.println("获取数据"+zkgetdata);
 		
 		// 获取自节点
-		List<String> zkList = zk.getChildren("/lquan", null);
-		System.out.println("zk list:"+zkList);
+//		List<String> zkList = zk.getChildren("/lquan", null);
+//		System.out.println("zk list:"+zkList);
 		
 		// 设置子节点
-		zk.setData("/lquan/lquan4", "quanaaxd".getBytes(), -1);
+//		zk.setData("/lquan/lquan4", "quanaaxd".getBytes(), -1);
 		
 //		 zk.create("/testRootPath/testChildPathTwo", "testChildDataTwo".getBytes(), 
 //				   Ids.OPEN_ACL_UNSAFE,CreateMode.PERSISTENT); 
 //		System.out.println(new String(zk.getData("/testRootPath/testChildPathTwo",true,null))); 
 		
-		zk.delete("/lquan/lquan5", -1);
+//		zk.delete("/lquan/lquan5", -1);
 		
 		
 		
