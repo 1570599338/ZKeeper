@@ -49,6 +49,5 @@ public class CuratorAtomicInteger {
 		System.out.println(value.preValue());	//原始值
 		
 		
-		
 	}
 }
