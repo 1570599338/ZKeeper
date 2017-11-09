@@ -48,5 +48,6 @@ public class CuratorAtomicInteger {
 		System.out.println(value.postValue());	//最新值
 		System.out.println(value.preValue());	//原始值
 		
+		
 	}
 }
